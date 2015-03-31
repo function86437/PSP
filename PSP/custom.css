@@ -1,0 +1,12 @@
+.but {
+    width: 70px;
+    height: 25px;
+    border: 2px solid silver;
+    border-radius: 25px;
+    margin: 5px;
+    animation:
+}
+
+.but:hover {
+    opacity: 0.5;
+}
