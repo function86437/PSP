@@ -12,7 +12,8 @@
         *   @param $data
         **/
         function _construct($data) {
-            $this->$next = Node($data);
+            $this->$data = $data;
+            $this->$next = null;
         }
 
         /**
@@ -21,7 +22,8 @@
         *   @param $next
         **/
         function _construct($data, $next) {
-            $this->$next = Node($data, $next);
+            $this->$data = $data;
+            $this->$next =$next;
         }
 
     }
