@@ -6,6 +6,8 @@
         $count = 0;
         $size = $_POST['size'];
 
+        require_once __DIR__ . '/SinglelinkedList.php';
+
         $single = new SinglelinkedList();
         $caculate = new CaculateMnS();
 
