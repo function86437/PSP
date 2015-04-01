@@ -7,6 +7,7 @@
         $size = $_POST['size'];
 
         require_once __DIR__ . '/SinglelinkedList.php';
+        require_once __DIR__ . '/CaculateMnS.php';
 
         $single = new SinglelinkedList();
         $caculate = new CaculateMnS();
