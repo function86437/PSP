@@ -105,7 +105,7 @@
         *   @param $index
         *   @param $item
         **/
-        public function add($index, $item) {
+        public function addbyIndex($index, $item) {
             if($index < 0 || $index >= $size){
                 return -1;
             }
@@ -138,7 +138,7 @@
         *   @param $index
         *   @return $removed
         **/
-        public function remove($index) {
+        public function removebyIndex($index) {
             if($index < 0 || $index >= $size){
                 return -1;
             }
