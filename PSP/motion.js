@@ -28,24 +28,8 @@ window.onload = function() {
         counter++;
         top.appendChild(input);
         top.appendChild(label);
-    });
 
-    /**
-    *   Event Listener on submit button
-    *
-    **/
-    document.getElementById("submit").addEventListener("click", function(){
-        var size = document.createElement("input");
-
-        size.innerHTML = counter;
-
-        size.setAttribute("name", "size");
-        size.setAttribute("type", "hidden");
-
-        top.appendChild(size);
-
-
-
+        document.getElementById("size").value = counter;
     });
 
 }
