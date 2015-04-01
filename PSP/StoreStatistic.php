@@ -12,7 +12,7 @@
         $caculate = new CaculateMnS();
 
         while( $count < $size) {
-            $single->add($input[$count]);
+            $single->addbyIndex($input[$count]);
         }
 
         $mean = $caculate->caculateMean($single, $size);
