@@ -15,7 +15,8 @@
         *   Add node behind the head node
         *   @param $R_number This is real number which user input
         **/
-        private  function addFirst($R_number) {
+        private function addFirst($R_number) {
+            require_once __DIR__ . '/Node.php';
             $head = new Node($R_number, $head);
         }
 
@@ -25,6 +26,7 @@
         *   @param $node Node before the one you want to insert
         **/
         private function addAfter($R_number, $node) {
+            require_once __DIR__ . '/Node.php';
             $node->$next = new Node($R_number, $node->$next);
         }
 
@@ -82,7 +84,7 @@
             if($index < 0 || $index >= $size){
                 return -1;
             }
-            return getNode($index);
+            return $this->getNode($index);
         }
 
         /**
@@ -94,7 +96,7 @@
             if($index < 0 || $index >= $size){
                 return -1;
             }
-            $temp = getNode($index);
+            $temp = $this->getNode($index);
             $oldValue = $temp->$data;
             $temp->$data = $newValue;
             return $oldValue;
@@ -110,10 +112,10 @@
                 return -1;
             }
             if($index == 0) {
-                addFirst($item);
+                $this->addFirst($item);
             } else {
-                $temp = getNode($index - 1);
-                addAfter($item, $temp);
+                $temp = $this->getNode($index - 1);
+                $this->addAfter($item, $temp);
             }
             $size++;
         }
@@ -125,10 +127,10 @@
         **/
         public function add($item) {
             if($size == 0) {
-                addFirst($item);
+                $this->addFirst($item);
             }
-            $temp = getNode($size -1);
-            $temp->$next = addAfter($item, $temp->$next);
+            $temp = $this->getNode($size - 1);
+            $temp->$next = $this->addAfter($item, $temp->$next);
             $size++;
             return true;
         }
@@ -142,7 +144,7 @@
             if($index < 0 || $index >= $size){
                 return -1;
             }
-            $temp = getNode($index - 1);
+            $temp = $this->getNode($index - 1);
             $removed = $temp->$next;
             $temp->$next = $removed->$next;
             return $removed;
@@ -156,9 +158,9 @@
             if($size == 0) {
                 return -1;
             } else if($size == 1)  {
-                $temp = removeFirst();
+                $temp = $this->removeFirst();
             } else {
-                $temp = removeAfter(getNode($size -1));
+                $temp = $this->removeAfter(getNode($size -1));
             }
             $size--;
             return $temp;
