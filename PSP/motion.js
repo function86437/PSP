@@ -40,7 +40,7 @@ window.onload = function() {
         size.innerHTML = counter;
 
         size.setAttribute("name", "size");
-        size.setAttribute("display", "none");
+        size.setAttribute("type", "hidden");
 
         top.appendChild(size);
 
