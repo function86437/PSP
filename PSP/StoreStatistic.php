@@ -23,7 +23,7 @@
 
         $sql = "INSERT INTO Mean_standard("mean","standard") VALUES (?, ?)";
 
-        $resultInsert = $dbcon->query($sql, array($mean, $standard);
+        $resultInsert = $dbcon->query($sql, array($mean, $standard));
 
 
         $sql = "INSERT INTO Real_number("content") VALUES (?)";
