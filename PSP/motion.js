@@ -1,6 +1,6 @@
 /**
 *   Auto new input box when user click "new" button
-*   @version 0.1
+*   @version 0.2
 **/
 
 //count amount of input box
@@ -26,11 +26,18 @@ document.getElementById("add").addEventListener("click", function(){
     top.appendChild(label);
 });
 
+var submit = document.getElementById("submit");
 
-var size = document.createElement("input");
+submit.addEventListener("click", function(){
+    var size = document.createElement("input");
 
-size.innerHTML = counter;
+    size.innerHTML = counter;
 
-size.setAttribute("name", "size");
+    size.setAttribute("name", "size");
 
-top.appendChild(size);
+    top.appendChild(size);
+
+    submit.submit();
+
+});
+
