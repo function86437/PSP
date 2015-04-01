@@ -44,7 +44,7 @@ window.onload = function() {
 
         top.appendChild(size);
 
-        document.getElementById("form").submit();
+
 
     });
 
