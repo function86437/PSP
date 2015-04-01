@@ -3,41 +3,45 @@
 *   @version 0.2
 **/
 
-//count amount of input box
-var counter = 0;
+window.onload = function() {
+    //count amount of input box
+    var counter = 0;
 
-var top = document.getElementById("top");
+    var top = document.getElementById("top");
 
-document.getElementById("add").addEventListener("click", function(){
+    document.getElementById("add").addEventListener("click", function(){
 
-    var input = document.createElement("input");
-    input.setAttribute("name","input[]");
-    input.style.border = "2px solid #888888";
-    input.style.textAlign = "center";
-    input.style.width = "40px";
-    input.style.margin = "10px";
-    input.style.backgroundColor = "#DDDDDD";
 
-    var label = document.createElement("label");
-    label.style.textAlign = "center";
-    label.innerHTML = "實數" + counter;
-    counter++;
-    top.appendChild(input);
-    top.appendChild(label);
-});
 
-var submit = document.getElementById("submit");
+        var input = document.createElement("input");
+        input.setAttribute("name","input[]");
+        input.style.border = "2px solid #888888";
+        input.style.textAlign = "center";
+        input.style.width = "40px";
+        input.style.margin = "10px";
+        input.style.backgroundColor = "#DDDDDD";
 
-submit.addEventListener("click", function(){
-    var size = document.createElement("input");
+        var label = document.createElement("label");
+        label.style.textAlign = "center";
+        label.innerHTML = "實數" + counter;
+        counter++;
+        top.appendChild(input);
+        top.appendChild(label);
+    });
 
-    size.innerHTML = counter;
+    var submit = document.getElementById("submit");
 
-    size.setAttribute("name", "size");
+    submit.addEventListener("click", function(){
+        var size = document.createElement("input");
 
-    top.appendChild(size);
+        size.innerHTML = counter;
 
-    submit.submit();
+        size.setAttribute("name", "size");
 
-});
+        top.appendChild(size);
 
+        submit.submit();
+
+    });
+
+}
