@@ -9,9 +9,10 @@ window.onload = function() {
 
     var top = document.getElementById("top");
 
+    /**
+    *   Event listener for add button
+    **/
     document.getElementById("add").addEventListener("click", function(){
-
-
 
         var input = document.createElement("input");
         input.setAttribute("name","input[]");
@@ -29,18 +30,21 @@ window.onload = function() {
         top.appendChild(label);
     });
 
-    var submit = document.getElementById("submit");
-
-    submit.addEventListener("click", function(){
+    /**
+    *   Event Listener on submit button
+    *
+    **/
+    document.getElementById("submit").addEventListener("click", function(){
         var size = document.createElement("input");
 
         size.innerHTML = counter;
 
         size.setAttribute("name", "size");
+        size.setAttribute("display", "none");
 
         top.appendChild(size);
 
-        submit.submit();
+        document.getElementById("form").submit();
 
     });
 
