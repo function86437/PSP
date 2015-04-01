@@ -1,3 +1,8 @@
+body{
+    background-color: blanchedalmond;
+    background-repeat:repeat;
+}
+
 .but {
     width: 70px;
     height: 25px;
