@@ -21,12 +21,12 @@
         //new PDO connection
         $dbcon = new DBConncet();
 
-        $sql = "INSERT INTO Mean_standard("mean","standard") VALUES (?, ?)";
+        $sql = "INSERT INTO Mean_standard(mean,standard) VALUES (?, ?)";
 
         $resultInsert = $dbcon->query($sql, array($mean, $standard));
 
 
-        $sql = "INSERT INTO Real_number("content") VALUES (?)";
+        $sql = "INSERT INTO Real_number(content) VALUES (?)";
 
 
 
