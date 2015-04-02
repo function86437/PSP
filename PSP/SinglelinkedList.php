@@ -1,4 +1,5 @@
 <?php
+    require 'Node.php'
     /**
     *   This class implements interface of Single-Linked List .
     *   @version 0.1
@@ -6,18 +7,24 @@
     class SinglelinkedList {
 
         //total size
-        private $size = 0;
+        private $size;
 
         //first node
-        private $head = null;
+        private $head;
 
+
+        function SinglelinkedList() {
+            $this->size = 0;
+            $this->head = null;
+        }
         /**
         *   Add node behind the head node
         *   @param $R_number This is real number which user input
         **/
         private function addFirst($R_number) {
-            require_once __DIR__ . '/Node.php';
-            $head = new Node($R_number, $head);
+            $node = new Node($R_number);
+            $node->next = $head;
+            $head = $node;
         }
 
         /**
@@ -26,15 +33,15 @@
         *   @param $node Node before the one you want to insert
         **/
         private function addAfter($R_number, $node) {
-            require_once __DIR__ . '/Node.php';
-            $node->$next = new Node($R_number, $node->$next);
+
+            $node->setNext(new Node($R_number, $node->getNext()));
         }
 
         /**
         *   Remove first node
         **/
         private function removeFirst() {
-            $head->$next = $head;
+            $this->head->setNext($this->head);
         }
 
         /**
@@ -42,8 +49,8 @@
         *   @param $node Node before the one you want to insert
         **/
         private function removeAfter($node) {
-            $temp = $node->$next;
-            $node->$next = $temp->$next;
+            $temp = $node->getNext();
+            $node->setNext($temp->getNext());
             return $temp;
         }
 
@@ -52,13 +59,13 @@
         *   @return $str
         **/
         public function toString() {
-            $temp = ($head == null ? null : $head);
+            $temp = ($this->head == null ? null : $this->head);
             $str = null;
             while($temp != null) {
-                $str += $head->$data;
-                if($temp->$next != null) {
+                $str += $temp->getData();
+                if($temp->getNext() != null) {
                     $str += ' -> ';
-                    $temp = $temp->$next;
+                    $temp = $temp->getNext();
                 }
             }
             return $str;
@@ -69,9 +76,9 @@
         *   @param $index
         **/
         private function getNode($index) {
-            $temp = $head;
+            $temp = $this->head;
             for( $i = 1; $i < $index; $i++) {
-                $temp = $temp->$next;
+                $temp = $temp->getNext();
             }
             return $temp;
         }
@@ -81,7 +88,7 @@
         *   @param $index
         **/
         public function get($index) {
-            if($index < 0 || $index >= $size){
+            if($index < 0 || $index >= $this->size){
                 return -1;
             }
             return $this->getNode($index);
@@ -93,12 +100,12 @@
         *   @return $oldValue
         **/
         public function set($index, $newValue) {
-            if($index < 0 || $index >= $size){
+            if($index < 0 || $index >= $this->size){
                 return -1;
             }
             $temp = $this->getNode($index);
-            $oldValue = $temp->$data;
-            $temp->$data = $newValue;
+            $oldValue = $temp->getData();
+            $temp->data = $newValue;
             return $oldValue;
         }
 
@@ -108,7 +115,7 @@
         *   @param $item
         **/
         public function addbyIndex($index, $item) {
-            if($index < 0 || $index >= $size){
+            if($index < 0 || $index >= $this->size){
                 return -1;
             }
             if($index == 0) {
@@ -117,7 +124,7 @@
                 $temp = $this->getNode($index - 1);
                 $this->addAfter($item, $temp);
             }
-            $size++;
+            $this->size = $this->size + 1;
         }
 
         /**
@@ -126,12 +133,12 @@
         *   @return $boo true|false
         **/
         public function add($item) {
-            if($size == 0) {
+            if($this->size == 0) {
                 $this->addFirst($item);
             }
-            $temp = $this->getNode($size - 1);
-            $temp->$next = $this->addAfter($item, $temp->$next);
-            $size++;
+            $temp = $this->getNode($this->size - 1);
+            $temp->setNext($this->addAfter($item, $temp->getNext()));
+            $this->size = $this->size + 1;
             return true;
         }
 
@@ -141,12 +148,13 @@
         *   @return $removed
         **/
         public function removebyIndex($index) {
-            if($index < 0 || $index >= $size){
+            if($index < 0 || $index >= $this->size){
                 return -1;
             }
             $temp = $this->getNode($index - 1);
-            $removed = $temp->$next;
-            $temp->$next = $removed->$next;
+            $removed = $temp->getNext();
+            $temp->setNext($removed->getNext());
+            $this->size = $this->size - 1;
             return $removed;
         }
 
@@ -155,14 +163,14 @@
         *   @return temp
         **/
         public function remove() {
-            if($size == 0) {
+            if($this->size == 0) {
                 return -1;
-            } else if($size == 1)  {
+            } else if($this->size == 1)  {
                 $temp = $this->removeFirst();
             } else {
-                $temp = $this->removeAfter(getNode($size -1));
+                $temp = $this->removeAfter(getNode($this->size -1));
             }
-            $size--;
+            $this->size = $this->size - 1;
             return $temp;
         }
     }
