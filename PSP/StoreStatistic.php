@@ -13,7 +13,7 @@
         $caculate = new CaculateMnS();
 
         while( $count < $size) {
-            $single->addbyIndex($input[$count]);
+            $single->add($input[$count]);
         }
 
         $mean = $caculate->caculateMean($single, $size);
@@ -22,7 +22,7 @@
         require_once __DIR__ . '/DBConnect.php';
 
         //new PDO connection
-        $dbcon = new DBConncet();
+        $dbcon = new DBConnect();
 
         $sql = "INSERT INTO Mean_standard(mean,standard) VALUES (?, ?)";
 
