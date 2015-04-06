@@ -1,7 +1,7 @@
 <?php
     /**
     *   This is math function for Mean and Standard
-    *   @version 0.1
+    *   @version 2.0
     **/
     class CaculateMnS {
 

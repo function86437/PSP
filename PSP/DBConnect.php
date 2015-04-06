@@ -1,7 +1,7 @@
 <?php
     /**
     *   Connect to Database by PDO
-    *   @version 0.1
+    *   @version 2.0
     **/
     class DBConnect {
 

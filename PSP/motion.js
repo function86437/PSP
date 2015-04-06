@@ -1,6 +1,6 @@
 /**
 *   Auto new input box when user click "new" button
-*   @version 0.2
+*   @version 2.0
 **/
 
 window.onload = function() {

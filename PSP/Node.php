@@ -4,6 +4,7 @@
     *   @version 2.0
     **/
     class Node {
+<<<<<<< HEAD
 
         public $data;
         public $next;
@@ -14,6 +15,16 @@
         *   @param $next
         **/
         function Node($data) {
+=======
+        public $data = 0;
+        public $next = null;
+
+        /**
+        *   This constructor build node at first time
+        *   @param $data
+        **/
+        function _construct($data) {
+>>>>>>> origin/oldVersion
             $this->data = $data;
         }
 

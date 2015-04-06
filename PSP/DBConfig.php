@@ -1,7 +1,7 @@
 <?php
     /*
     *   All database connection varisbles
-    *   @version 1.0
+    *   @version 2.0
     */
     define("DB_USER","");
     define("DB_PASSWD","");
