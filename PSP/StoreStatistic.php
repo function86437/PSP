@@ -1,4 +1,7 @@
 <?php
+    require '/SinglelinkedList.php';
+    require '/CaculateMnS.php';
+
 
     if(isset($_POST['input']) && isset($_POST['size'])){
 
@@ -6,20 +9,18 @@
         $count = 0;
         $size = $_POST['size'];
 
-        require_once __DIR__ . '/SinglelinkedList.php';
-        require_once __DIR__ . '/CaculateMnS.php';
 
         $single = new SinglelinkedList();
         $caculate = new CaculateMnS();
 
         while( $count < $size) {
-            $single->addbyIndex($input[$count]);
+            $single->add($input[$count]);
         }
 
         $mean = $caculate->caculateMean($single, $size);
         $standard = $caculate->caculateStandard($single, $size, $mean);
-
-        require_once __DIR__ . '/DBConnect.php';
+        echo $mean . " " . $standard;
+        /*require_once __DIR__ . '/DBConnect.php';
 
         //new PDO connection
         $dbcon = new DBConncet();
@@ -30,7 +31,7 @@
 
 
         $sql = "INSERT INTO Real_number(content) VALUES (?)";
-
+*/
 
 
     } else {
