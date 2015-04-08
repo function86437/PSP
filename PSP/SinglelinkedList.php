@@ -51,7 +51,7 @@
 
             $node = new Node($item);
 
-            $nodeRef = $this->getNode($index - 1);
+            $nodeRef = $this->getNode($index);
 
             $node->next = $nodeRef->next;
 
@@ -88,10 +88,13 @@
             $temp = ($this->head == null ? null : $this->head);
             $str = null;
             while($temp != null) {
-                $str += $this->head->data;
+                $str += $temp->data;
+                echo $temp->data;
                 if($temp->next != null) {
                     $str += ' -> ';
                     $temp = $temp->next;
+                } else {
+                    break;
                 }
             }
             return $str;
@@ -119,7 +122,7 @@
             if($this->size == 0)
                 $this->addFirst($item);
             else
-                $this->addNode($item, $this->size - 1);
+                $this->addNode($item, $this->size);
             $this->size++;
         }
 

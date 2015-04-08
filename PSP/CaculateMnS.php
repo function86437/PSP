@@ -14,12 +14,12 @@
         public function caculateMean($single, $size) {
             $total = 0;
 
-            for($i = 0; $i < $size; $i++) {
+            for($i = 1; $i <= $size; $i++) {
                 $total += $single->getNode($i)->data;
             }
 
             //cast int into double(two zeroes after decimal)
-            return number_format($total/$size, 2);
+            return number_format($total / $size, 2);
         }
 
         /**
@@ -32,7 +32,7 @@
         public function caculateStandard($single, $size, $mean) {
             $total = 0;
 
-            for($i = 0; $i < $size; $i++) {
+            for($i = 1; $i <= $size; $i++) {
                 $temp = $single->getNode($i)->data - $mean;
                 $total += $temp * $temp;
             }
