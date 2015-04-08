@@ -28,6 +28,7 @@ window.onload = function() {
 
         check.setAttribute("id", counter);
         check.setAttribute("type", "hidden");
+        check.setAttribute("value","false");
         input.addEventListener("blur", function() {
             if(!regExp(input.value)) {
                 input.style.backgroundColor = "green";
@@ -56,13 +57,15 @@ window.onload = function() {
     });
 
     sub.addEventListener("click", function() {
+        var boo = true;
         for(var i = 0; i < counter; i++) {
             if(document.getElementById(i).value == "false") {
                 alert("Some input box had error value");
+                boo = false;
             }
         }
-        console.log(form);
-        form.submit();
+        boo?form.submit():false;
+
     });
 }
 
@@ -72,6 +75,6 @@ window.onload = function() {
 *   @param str require string
 **/
 function regExp(str) {
-    var patt = /\d(\.?\d)?/i;
+    var patt = /^\d+(\.?\d+)?$/i;
     return patt.test(str);
 }

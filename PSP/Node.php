@@ -17,7 +17,7 @@
         **/
         function Node($data) {
 
-        $this->data = $data;
+            $this->data = $data;
 
         }
 
