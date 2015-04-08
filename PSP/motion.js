@@ -31,7 +31,7 @@ window.onload = function() {
         check.setAttribute("value","false");
         input.addEventListener("blur", function() {
             if(!regExp(input.value)) {
-                input.style.backgroundColor = "green";
+                input.style.backgroundColor = "white";
                 input.style.border = "thick solid red";
                 input.value = "";
                 check.value = false;
