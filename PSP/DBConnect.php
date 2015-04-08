@@ -1,14 +1,16 @@
 <?php
     /**
     *   Connect to Database by PDO
-    *   @version 2.0
+    *   @version 3.0
+    *   @auther Banana
     **/
     class DBConnect {
 
+        //connection obj
         public $con = null;
 
         //construct
-        function _construct() {
+        function DBConnect() {
             $this->connect();
         }
 
@@ -19,14 +21,16 @@
 
 
         //connect to db
-        private function connect() {
+        function connect() {
 
             //import db variables
-            require_once _DIR_ . '/DBConfig.php';
+            require_once __DIR__ . '/DBConfig.php';
 
             //connecting to db
             try{
-                $this->$con = new PDO(DB_SERVER_CONFIG, DB_USER, DB_PASSWORD);
+
+                //new PDO obj
+                $this->con = new PDO(DB_SERVER_CONFIG, DB_USER, DB_PASSWD);
             } catch (PDOException $e) {
                 printf('DatabaseError: %s', $e->getMessange());
             }
@@ -42,7 +46,7 @@
         public function query($sql, $exepara) {
             //Inorder to avoid sql injection, pdo send twice times for one transaction
             //First is command
-            $stmt = $this->$con->prepare($sql);
+            $stmt = $this->con->prepare($sql);
 
             //Second is data
             $stmt->execute($exepara);
@@ -58,7 +62,7 @@
         **/
         public function queryWithoutData($sql) {
 
-            $stmt = $this->$con->prepare($sql);
+            $stmt = $this->con->prepare($sql);
 
             $stmt->execute();
 
@@ -68,7 +72,7 @@
         //close db connection
         private function close() {
 
-            $this->$con = null;
+            $this->con = null;
         }
     }
 ?>

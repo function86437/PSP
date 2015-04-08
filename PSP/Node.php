@@ -1,10 +1,11 @@
 <?php
     /**
     *   This is Node class for Single-Linked List
-    *   @version 2.0
+    *   @version 3.0
+    *   @auther Banana
     **/
     class Node {
-<<<<<<< HEAD
+
 
         public $data;
         public $next;
@@ -15,17 +16,9 @@
         *   @param $next
         **/
         function Node($data) {
-=======
-        public $data = 0;
-        public $next = null;
 
-        /**
-        *   This constructor build node at first time
-        *   @param $data
-        **/
-        function _construct($data) {
->>>>>>> origin/oldVersion
-            $this->data = $data;
+        $this->data = $data;
+
         }
 
     }

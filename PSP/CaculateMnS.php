@@ -1,7 +1,7 @@
 <?php
     /**
     *   This is math function for Mean and Standard
-    *   @version 2.0
+    *   @version 3.0
     **/
     class CaculateMnS {
 
@@ -15,10 +15,11 @@
             $total = 0;
 
             for($i = 0; $i < $size; $i++) {
-                $total += $single->get($i);
+                $total += $single->getNode($i)->data;
             }
 
-            return $total/$size;
+            //cast int into double(two zeroes after decimal)
+            return number_format($total/$size, 2);
         }
 
         /**
@@ -32,7 +33,7 @@
             $total = 0;
 
             for($i = 0; $i < $size; $i++) {
-                $temp = $single->get($i) - $mean;
+                $temp = $single->getNode($i)->data - $mean;
                 $total += $temp * $temp;
             }
 
